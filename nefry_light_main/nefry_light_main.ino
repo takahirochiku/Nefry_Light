@@ -26,7 +26,7 @@ void loop() {
   Nefry.print("sensorValueNow=");
   Nefry.println(sensorValueNow);
   
-  if(sensorValueBefore < 700){
+  if(sensorValueBefore < 300){
     if(sensorValueNow > 700){
       bool sendData = IFTTT.send(Event, SecretKey,"Nefry_LightON","前:"+(String)sensorValueBefore,"今:"+(String)sensorValueNow);//IFTTTにデータを送信
        }
