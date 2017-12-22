@@ -1,6 +1,3 @@
-#include <Time.h>
-#include <TimeLib.h>
-
 #include <Nefry.h>
 #include <NefryIFTTT.h>
 String Event, SecretKey;
@@ -29,10 +26,9 @@ void loop() {
   Nefry.print("sensorValueNow=");
   Nefry.println(sensorValueNow);
   
-  if(sensorValueBefore < 500){
-    if(sensorValueNow > 500){
-      bool sendData = IFTTT.send(Event, SecretKey,"Nefry_LightON",(String)(micros()/1000000)+"秒",(String)(now()));//IFTTTにデータを送信
-                                 //Value1:Nefry,Value2:Nefryが起動してからの秒数,Value3:日時
+  if(sensorValueBefore < 700){
+    if(sensorValueNow > 700){
+      bool sendData = IFTTT.send(Event, SecretKey,"Nefry_LightON","前:"+(String)sensorValueBefore,"今:"+(String)sensorValueNow);//IFTTTにデータを送信
        }
       }
   
